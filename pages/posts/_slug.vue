@@ -12,7 +12,7 @@
         >{{ tag.name }}</span
       >
     </div>
-    <div class="text-xl leading-relaxed">{{ post.content }}</div>
+    <div class="prose">{{ post.content }}</div>
   </article>
 </template>
 
