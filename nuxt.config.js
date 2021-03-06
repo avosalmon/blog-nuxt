@@ -39,7 +39,17 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxt/http'],
+
+  // Http module configuration: https://http.nuxtjs.org/options
+  http: {
+    proxy: true,
+  },
+
+  // Proxy module configuration: https://github.com/nuxt-community/proxy-module
+  proxy: {
+    '/api/': process.env.API_BASE_URL,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
