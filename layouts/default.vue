@@ -5,14 +5,14 @@
         class="flex flex-col items-center justify-between bg-black text-white px-4 py-4 md:flex-row md:px-32"
       >
         <div class="text-2xl font-medium font-mono mb-4 md:mb-0">
-          <a href="/" class="hover:text-blue-400">
+          <NuxtLink to="/" class="hover:text-blue-400">
             <img
               src="~/assets/image/avatar.jpg"
               alt="avatar"
               class="hidden rounded-full h-16 mr-4 md:inline"
             />
             Ryuta Hamasaki
-          </a>
+          </NuxtLink>
         </div>
         <div class="flex items-center justify-between">
           <a
