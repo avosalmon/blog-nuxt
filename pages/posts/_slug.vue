@@ -1,9 +1,11 @@
 <template>
   <article>
-    <h1 class="text-4xl md:text-5xl font-semibold leading-tight mb-4">
+    <h1
+      class="text-4xl font-semibold leading-tight mb-4 md:text-5xl md:leading-snug md:mb-6"
+    >
       {{ post.title }}
     </h1>
-    <div class="mb-10">
+    <div class="mb-10 md:mb-14">
       <span class="text-gray-600 mr-3">{{ post.published_at }}</span>
       <span
         v-for="tag in post.tags"
