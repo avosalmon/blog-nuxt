@@ -1,9 +1,13 @@
 <template>
   <div>
-    <article v-for="post in posts" :key="post.id" class="mb-10">
+    <article
+      v-for="post in posts"
+      :key="post.id"
+      class="mb-10 transition duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+    >
       <NuxtLink class="flex flex-col md:flex-row" :to="`/posts/${post.slug}`">
         <img
-          class="object-cover mb-2 md:h-48 md:w-48 md:mr-10"
+          class="object-cover mb-2 md:h-48 md:w-48 md:mr-10 md:mb-0"
           :src="post.featured_image ? post.featured_image.url : ''"
           :alt="post.title"
         />
