@@ -11,7 +11,7 @@
           <h1 class="text-2xl font-semibold leading-tight mb-2">
             {{ post.title }}
           </h1>
-          <p class="text-gray-600 mb-4">{{ post.published_at }}</p>
+          <p class="text-gray-600 mb-4">{{ post.published_at | date }}</p>
           <p class="leading-relaxed hidden md:block">{{ post.excerpt }}</p>
         </div>
       </NuxtLink>

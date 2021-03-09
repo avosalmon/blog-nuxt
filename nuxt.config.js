@@ -26,7 +26,7 @@ export default {
   css: ['@/assets/css/tailwind.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/markdown-it.js'],
+  plugins: ['@/plugins/markdown-it.js', '@/plugins/filters.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

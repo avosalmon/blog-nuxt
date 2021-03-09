@@ -6,7 +6,7 @@
       {{ post.title }}
     </h1>
     <div class="mb-10 md:mb-14">
-      <span class="text-gray-600 mr-3">{{ post.published_at }}</span>
+      <span class="text-gray-600 mr-3">{{ post.published_at | date }}</span>
       <span
         v-for="tag in post.tags"
         :key="tag.id"
