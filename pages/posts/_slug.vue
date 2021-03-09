@@ -12,7 +12,7 @@
         >{{ tag.name }}</span
       >
     </div>
-    <div class="prose">{{ post.content }}</div>
+    <div class="prose lg:prose-lg" v-html="parsedContent"></div>
   </article>
 </template>
 
@@ -21,6 +21,11 @@ export default {
   async asyncData({ params, $http }) {
     const { data } = await $http.$get(`/api/posts/${params.slug}`)
     return { post: data }
+  },
+  computed: {
+    parsedContent() {
+      return this.$md.render(this.post.content)
+    },
   },
 }
 </script>
