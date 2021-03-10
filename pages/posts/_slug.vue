@@ -24,6 +24,97 @@ export default {
     const { data } = await $http.$get(`/api/posts/${params.slug}`)
     return { post: data }
   },
+  head() {
+    const siteName = process.env.APP_NAME
+    const title = `${this.post.title} - ${siteName}`
+    const description = this.post.excerpt.substring(0, 155)
+    const pageUrl = `${process.env.BASE_URL}${this.$route.path}`
+
+    const ogImage = this.post.featured_image
+      ? this.post.featured_image.url
+      : process.env.DEFAULT_OG_IMAGE
+
+    return {
+      title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: description,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:site',
+          name: 'twitter:site',
+          content: '@avosalmon',
+        },
+        {
+          hid: 'twitter:creator',
+          name: 'twitter:creator',
+          content: '@avosalmon',
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: title,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: description,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: ogImage,
+        },
+        {
+          hid: 'twitter:image:alt',
+          name: 'twitter:image:alt',
+          content: title,
+        },
+        {
+          hid: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: title,
+        },
+        {
+          hid: 'og:site_name',
+          property: 'og:site_name',
+          content: siteName,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: description,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: pageUrl,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: ogImage,
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: title,
+        },
+      ],
+    }
+  },
   computed: {
     parsedContent() {
       return this.$md.render(this.post.content)
