@@ -22,13 +22,13 @@
     </article>
     <nav>
       <ul class="flex justify-between">
-        <li :class="{ invisible: isFirstPage }">
-          <NuxtLink :to="'/posts/page/${previousPage}'" class="underline"
+        <li v-if="!isFirstPage">
+          <NuxtLink :to="`/posts/page/${previousPage}`" class="underline"
             >« Previous</NuxtLink
           >
         </li>
-        <li :class="{ invisible: isLastPage }">
-          <NuxtLink :to="'/posts/page/${nextPage}'" class="underline"
+        <li v-if="!isLastPage">
+          <NuxtLink :to="`/posts/page/${nextPage}`" class="underline"
             >Next »</NuxtLink
           >
         </li>
