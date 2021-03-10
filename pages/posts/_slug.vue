@@ -20,8 +20,10 @@
 
 <script>
 export default {
-  async asyncData({ params, $http }) {
-    const { data } = await $http.$get(`/api/posts/${params.slug}`)
+  async asyncData({ params, $axios }) {
+    const { data } = await $axios.$get(
+      `${process.env.API_BASE_URL}/api/posts/${params.slug}`
+    )
     return { post: data }
   },
   head() {

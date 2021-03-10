@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -131,16 +133,27 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxt/http'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/sitemap'],
 
-  // Http module configuration: https://http.nuxtjs.org/options
-  http: {
-    proxy: true,
-  },
+  // Sitemap module configuration: https://sitemap.nuxtjs.org
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    routes: async () => {
+      const routes = []
+      let lastPage = 1
 
-  // Proxy module configuration: https://github.com/nuxt-community/proxy-module
-  proxy: {
-    '/api/': process.env.API_BASE_URL,
+      for (let page = 1; page <= lastPage; page++) {
+        const {
+          data: { data, meta },
+        } = await axios.get(
+          `${process.env.API_BASE_URL}/api/posts?page=${page}`
+        )
+        routes.push(...data.map((post) => `/posts/${post.slug}`))
+        lastPage = meta.last_page
+      }
+
+      return routes
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

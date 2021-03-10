@@ -39,8 +39,10 @@
 
 <script>
 export default {
-  async asyncData({ $http }) {
-    const { data, meta } = await $http.$get('/api/posts')
+  async asyncData({ $axios }) {
+    const { data, meta } = await $axios.$get(
+      `${process.env.API_BASE_URL}/api/posts`
+    )
     return { posts: data, meta }
   },
   computed: {
