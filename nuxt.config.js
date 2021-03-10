@@ -133,7 +133,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios', '@nuxtjs/sitemap'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/sitemap', '@nuxtjs/gtm'],
+
+  gtm: {
+    id: process.env.GTM_ID,
+  },
 
   // Sitemap module configuration: https://sitemap.nuxtjs.org
   sitemap: {
