@@ -113,6 +113,7 @@ export default {
   env: {
     APP_NAME: process.env.APP_NAME,
     BASE_URL: process.env.BASE_URL,
+    API_BASE_URL: process.env.API_BASE_URL,
     DEFAULT_OG_IMAGE: process.env.DEFAULT_OG_IMAGE,
   },
 
