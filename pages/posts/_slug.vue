@@ -10,7 +10,7 @@
       <span
         v-for="tag in post.tags"
         :key="tag.id"
-        class="bg-gray-300 rounded px-2 py-1 mr-1"
+        class="bg-gray-200 rounded px-2 py-1 mr-1"
         >{{ tag.name }}</span
       >
     </div>
