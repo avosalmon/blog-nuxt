@@ -1,7 +1,7 @@
 <template>
   <article>
     <h1
-      class="text-4xl font-semibold leading-tight mb-4 md:text-5xl md:leading-snug md:mb-6"
+      class="text-4xl font-bold leading-tight mb-4 md:text-5xl md:leading-snug md:mb-6"
     >
       {{ post.title }}
     </h1>
@@ -14,7 +14,10 @@
         >{{ tag.name }}</span
       >
     </div>
-    <div class="prose prose-lg" v-html="parsedContent"></div>
+    <div
+      class="max-w-full prose prose-lg xl:prose-2xl"
+      v-html="parsedContent"
+    ></div>
   </article>
 </template>
 
