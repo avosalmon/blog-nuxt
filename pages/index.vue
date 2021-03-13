@@ -40,9 +40,14 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const { data, meta } = await $axios.$get(
-      `${process.env.API_BASE_URL}/api/posts`
-    )
+    const params = {
+      sort: 'published_at',
+      direction: 'desc',
+    }
+    const {
+      data,
+      meta,
+    } = await $axios.$get(`${process.env.API_BASE_URL}/api/posts`, { params })
     return { posts: data, meta }
   },
   computed: {
