@@ -43,6 +43,7 @@ export default {
     const params = {
       sort: 'published_at',
       direction: 'desc',
+      status: 'published',
     }
     const {
       data,
