@@ -14,7 +14,7 @@
         >{{ tag.name }}</span
       >
     </div>
-    <div class="prose lg:prose-lg" v-html="parsedContent"></div>
+    <div class="prose prose-lg" v-html="parsedContent"></div>
   </article>
 </template>
 
