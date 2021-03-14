@@ -112,10 +112,10 @@
         </div>
       </nav>
     </header>
-    <main class="px-4 py-10 mx-auto w-full md:w-2/3 lg:w-3/5 xl:w-1/2">
+    <main class="px-4 py-10 mx-auto w-full md:w-2/3 lg:w-3/5 2xl:w-1/2">
       <Nuxt />
     </main>
-    <div class="px-4 pb-20 mx-auto w-full md:w-2/3 lg:w-3/5 xl:w-1/2">
+    <div class="px-4 pb-20 mx-auto w-full md:w-2/3 lg:w-3/5 2xl:w-1/2">
       <div class="text-center mb-4">
         <img
           src="~/assets/image/avatar.jpg"
