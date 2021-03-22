@@ -6,11 +6,20 @@
       >
         <div class="text-2xl font-medium font-mono mb-4 md:mb-0">
           <NuxtLink to="/" class="hover:text-blue-400">
-            <img
-              src="~/assets/image/avatar.jpg"
-              alt="avatar"
-              class="hidden rounded-full h-16 mr-4 md:inline"
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="hidden h-12 md:inline"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
             Ryuta Hamasaki
           </NuxtLink>
         </div>
