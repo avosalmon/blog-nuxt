@@ -25,7 +25,12 @@
 export default {
   async asyncData({ params, $axios }) {
     const { data } = await $axios.$get(
-      `${process.env.API_BASE_URL}/api/posts/${params.slug}`
+      `${process.env.API_BASE_URL}/api/posts/${params.slug}`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.API_TOKEN}`,
+        },
+      }
     )
     return { post: data }
   },

@@ -45,10 +45,15 @@ export default {
       direction: 'desc',
       status: 'published',
     }
-    const {
-      data,
-      meta,
-    } = await $axios.$get(`${process.env.API_BASE_URL}/api/posts`, { params })
+    const { data, meta } = await $axios.$get(
+      `${process.env.API_BASE_URL}/api/posts`,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.API_TOKEN}`,
+        },
+        params,
+      }
+    )
     return { posts: data, meta }
   },
   computed: {
