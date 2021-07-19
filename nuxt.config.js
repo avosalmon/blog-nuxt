@@ -114,6 +114,7 @@ export default {
     APP_NAME: process.env.APP_NAME,
     BASE_URL: process.env.BASE_URL,
     API_BASE_URL: process.env.API_BASE_URL,
+    API_TOKEN: process.env.API_TOKEN,
     DEFAULT_OG_IMAGE: process.env.DEFAULT_OG_IMAGE,
   },
 
@@ -148,11 +149,21 @@ export default {
       let lastPage = 1
 
       for (let page = 1; page <= lastPage; page++) {
+        const params = {
+          page,
+          sort: 'published_at',
+          direction: 'desc',
+          status: 'published',
+        }
+
         const {
           data: { data, meta },
-        } = await axios.get(
-          `${process.env.API_BASE_URL}/api/posts?page=${page}`
-        )
+        } = await axios.get(`${process.env.API_BASE_URL}/api/posts`, {
+          headers: {
+            Authorization: `Bearer ${process.env.API_TOKEN}`,
+          },
+          params,
+        })
         routes.push(...data.map((post) => `/posts/${post.slug}`))
         lastPage = meta.last_page
       }
